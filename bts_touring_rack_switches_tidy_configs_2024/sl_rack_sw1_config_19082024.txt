@@ -1,61 +1,75 @@
 !
-!! Last configuration change at 02:25:26 UTC Mon Mar 1 1993 by admin
-!
 version 15.0
 no service pad
 service timestamps debug datetime msec
 service timestamps log datetime msec
 service password-encryption
-service unsupported-transceiver
 !
-hostname BTS-CISCO-48-5
+hostname bts-cisco-48-5
 !
 boot-start-marker
 boot-end-marker
 !
-enable secret 5 $1$qehy$sPkQxCkR.qWd4B3VyB2f4.
+enable secret 5 $1$4ezb$JEJGCLXISLjmShl3TIC1Y.
 !
-username admin password 7 03065A09081F711B
+username admin password 7 070D204E40194952
 aaa new-model
+!
+!
+!
+!
+!
 !
 !
 aaa session-id common
 system mtu routing 1500
+vtp domain bathvtp
+vtp mode off
 ip domain-name bts-crew.com
 !
 !
-crypto pki trustpoint TP-self-signed-430799232
+no ip igmp snooping vlan 101
+no ip igmp snooping vlan 103
+no ip igmp snooping vlan 102
+no ip igmp snooping vlan 105
+no ip igmp snooping vlan 104
+no ip igmp snooping vlan 107
+no ip igmp snooping vlan 106
+no ip igmp snooping vlan 108
+!
+!
+crypto pki trustpoint TP-self-signed-4071434240
  enrollment selfsigned
- subject-name cn=IOS-Self-Signed-Certificate-430799232
+ subject-name cn=IOS-Self-Signed-Certificate-4071434240
  revocation-check none
- rsakeypair TP-self-signed-430799232
+ rsakeypair TP-self-signed-4071434240
 !
 !
-crypto pki certificate chain TP-self-signed-430799232
+crypto pki certificate chain TP-self-signed-4071434240
  certificate self-signed 01
-  30820251 308201BA A0030201 02020101 300D0609 2A864886 F70D0101 04050030
-  30312E30 2C060355 04031325 494F532D 53656C66 2D536967 6E65642D 43657274
-  69666963 6174652D 34333037 39393233 32301E17 0D393330 33303130 30303235
-  335A170D 32303031 30313030 30303030 5A303031 2E302C06 03550403 1325494F
-  532D5365 6C662D53 69676E65 642D4365 72746966 69636174 652D3433 30373939
-  32333230 819F300D 06092A86 4886F70D 01010105 0003818D 00308189 02818100
-  99AC10B2 64C46A40 7FF3364C C5D4C399 EBBAF31A F499EAA2 0F4105F0 FC8CFDB4
-  09FB049A E9BE840E 6D00F8B8 50CED203 31C946C6 843A69CA 9A93C929 71F02755
-  D9B8A681 BC0D006E EFDD6D5B 10084C7E B8EF0A47 1F02421B 2D77B17A C78E80BE
-  24E47DED B9CEDC24 84727343 BA28070C DAB35877 883B8A30 CB0D6871 2652715F
-  02030100 01A37B30 79300F06 03551D13 0101FF04 05300301 01FF3026 0603551D
-  11041F30 1D821B62 74732D63 6973636F 2D34382D 312E6274 732D6372 65772E63
-  6F6D301F 0603551D 23041830 16801447 115A9C72 4E411F7E F4D9CAD4 33F6DB25
-  BCA82A30 1D060355 1D0E0416 04144711 5A9C724E 411F7EF4 D9CAD433 F6DB25BC
-  A82A300D 06092A86 4886F70D 01010405 00038181 008240FB 0966C091 D95EBAE9
-  82A7F028 0F853F08 A4E7C17E B4013301 29357C74 A4676D35 0F2F8C30 F14A3DBD
-  DBC1146B 48D570D4 E82AAAA3 DC433618 F34D1923 1FA313E9 0E02F7D0 3A38C58D
-  BF2DE4F5 6AF3F12F B139606D FB7ECAA4 C5BBFF51 583E4CAF 390230B8 9203A7D4
-  FE740A52 C3070E2F 347C8941 F290AAAF C11E03AF 58
+  30820253 308201BC A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 34303731 34333432 3430301E 170D3933 30333031 30303033
+  30365A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D34 30373134
+  33343234 3030819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  81009E77 97A294C8 5DFEAD11 C37F0CCC 9788BC7C 94C593B1 D11075AF F58BC79F
+  A0B5349E EF842A34 BF066409 B1BFD6C3 635074F6 164AB001 F0DF2A1D BE6F6D23
+  C529441A 46A276D1 C2D7E67B FA1B74AF D0AB41A9 503BDC46 45A9B735 9A8E7D9A
+  DB777BFD 4245D56F A7D8B543 D6087816 79F08596 26B1B72C 5FCD23EF F7243E48
+  F2350203 010001A3 7B307930 0F060355 1D130101 FF040530 030101FF 30260603
+  551D1104 1F301D82 1B627473 2D636973 636F2D34 382D352E 6274732D 63726577
+  2E636F6D 301F0603 551D2304 18301680 144F15FD 746A3F72 4D0B2A95 DA8D18BB
+  3F13FC93 C8301D06 03551D0E 04160414 4F15FD74 6A3F724D 0B2A95DA 8D18BB3F
+  13FC93C8 300D0609 2A864886 F70D0101 04050003 81810095 AB4D4440 7A81E4E9
+  701ACF39 851E12C6 C14DCC04 5234DFBA 82FD9A5C 2C64446D FC401713 B83C7ED0
+  4888ADDC 732FC7A4 6025D997 E23EE1C4 003A4646 D0CD5912 FC6173D8 7A52AE90
+  96C1220C E6C8971D 0AEEB3DE 7D2406C9 0F1C8F81 BAC1FE3F A0FB0DF1 9A27A8E6
+  3841594D B619695F 66CE04E2 B4365B54 0B514C17 632660
         quit
 !
 !
-no errdisable detect cause gbic-invalid
+!
 !
 spanning-tree mode mst
 spanning-tree extend system-id
@@ -66,11 +80,8 @@ spanning-tree mst configuration
  instance 2 vlan 50-51, 60
  instance 3 vlan 1
 !
+!
 vlan internal allocation policy ascending
-lldp run
-!
-ip ssh version 2
-!
 !
 vlan 2
  name MGMT
@@ -116,6 +127,15 @@ vlan 108
 !
 vlan 201
  name SPARE
+!
+vlan 202
+ name general-use-2
+lldp run
+!
+ip ssh version 2
+!
+!
+!
 !
 !
 interface GigabitEthernet0/1
@@ -309,14 +329,12 @@ interface GigabitEthernet0/36
 interface GigabitEthernet0/37
  switchport access vlan 201
  switchport mode access
- speed 100
  spanning-tree portfast
  spanning-tree bpdufilter enable
 !
 interface GigabitEthernet0/38
  switchport access vlan 201
  switchport mode access
- speed 100
  spanning-tree portfast
  spanning-tree bpdufilter enable
 !
@@ -374,7 +392,6 @@ interface GigabitEthernet0/48
  switchport mode access
  spanning-tree portfast
 !
-!
 interface GigabitEthernet0/49
 !
 interface GigabitEthernet0/50
@@ -383,14 +400,12 @@ interface GigabitEthernet0/51
 !
 interface GigabitEthernet0/52
 !
-!
 interface Vlan1
  no ip address
 !
 interface Vlan2
- ip address 10.0.2.5 255.255.0.0
+ ip address 10.0.2.5 255.255.255.0
  no ip route-cache
-!
 !
 ip default-gateway 10.0.2.254
 ip http server
@@ -405,9 +420,8 @@ snmp-server community public RO
 !
 line con 0
 line vty 0 4
- password 7 104C081B0B07425C
+ password 7 04590A0401311C19
  transport input telnet
-!
 line vty 5 15
  transport input ssh
 !
