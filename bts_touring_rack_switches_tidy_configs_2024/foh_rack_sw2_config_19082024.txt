@@ -93,15 +93,50 @@ lldp run
 ip ssh version 2
 !
 !
+vlan 2
+ name MGMT
 !
+vlan 34
+ name INTERNET
 !
+vlan 50
+ name SOUND-PRI
 !
+vlan 51
+ name SOUND-SEC
 !
+vlan 60
+ name LX
 !
+vlan 100
+ name VID-CTRL
 !
+vlan 101
+ name VID-ISOL-1
 !
+vlan 102
+ name VID-ISOL-2
 !
+vlan 103
+ name VID-ISOL-3
 !
+vlan 104
+ name VID-ISOL-4
+!
+vlan 105
+ name VID-ISOL-5
+!
+vlan 106
+ name VID-ISOL-6
+!
+vlan 107
+ name VID-ISOL-7
+!
+vlan 108
+ name VID-ISOL-8
+!
+vlan 201
+ name SPARE
 !
 !
 interface GigabitEthernet0/1
