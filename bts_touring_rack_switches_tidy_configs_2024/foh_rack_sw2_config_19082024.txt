@@ -422,6 +422,7 @@ ip http server
 ip http secure-server
 !
 !
+snmp-server community public RO
 !
 !
 line con 0
