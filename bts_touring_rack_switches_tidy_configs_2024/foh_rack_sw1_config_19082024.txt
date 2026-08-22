@@ -1,5 +1,5 @@
 !
-!! Last configuration change at 02:25:26 UTC Mon Mar 1 1993 by admin
+! Last configuration change at 07:56:24 UTC Tue Mar 2 1993 by admin
 !
 version 15.0
 no service pad
@@ -8,7 +8,7 @@ service timestamps log datetime msec
 service password-encryption
 service unsupported-transceiver
 !
-hostname BTS-CISCO-48-1
+hostname bts-cisco-48-1
 !
 boot-start-marker
 boot-end-marker
@@ -19,9 +19,25 @@ username admin password 7 03065A09081F711B
 aaa new-model
 !
 !
+!
+!
+!
+!
+!
 aaa session-id common
 system mtu routing 1500
 ip domain-name bts-crew.com
+!
+!
+ip igmp snooping querier
+no ip igmp snooping vlan 101
+no ip igmp snooping vlan 103
+no ip igmp snooping vlan 102
+no ip igmp snooping vlan 105
+no ip igmp snooping vlan 104
+no ip igmp snooping vlan 107
+no ip igmp snooping vlan 106
+no ip igmp snooping vlan 108
 !
 !
 crypto pki trustpoint TP-self-signed-430799232
@@ -53,6 +69,7 @@ crypto pki certificate chain TP-self-signed-430799232
   BF2DE4F5 6AF3F12F B139606D FB7ECAA4 C5BBFF51 583E4CAF 390230B8 9203A7D4
   FE740A52 C3070E2F 347C8941 F290AAAF C11E03AF 58
         quit
+!
 !
 !
 no errdisable detect cause gbic-invalid
@@ -291,34 +308,36 @@ interface GigabitEthernet0/32
 interface GigabitEthernet0/33
  switchport access vlan 34
  switchport mode access
+ speed 100
  spanning-tree portfast
 !
 interface GigabitEthernet0/34
  switchport access vlan 34
  switchport mode access
+ speed 100
  spanning-tree portfast
 !
 interface GigabitEthernet0/35
  switchport access vlan 34
  switchport mode access
+ speed 100
  spanning-tree portfast
 !
 interface GigabitEthernet0/36
  switchport access vlan 34
  switchport mode access
+ speed 100
  spanning-tree portfast
 !
 interface GigabitEthernet0/37
  switchport access vlan 201
  switchport mode access
- speed 100
  spanning-tree portfast
  spanning-tree bpdufilter enable
 !
 interface GigabitEthernet0/38
  switchport access vlan 201
  switchport mode access
- speed 100
  spanning-tree portfast
  spanning-tree bpdufilter enable
 !
@@ -376,7 +395,6 @@ interface GigabitEthernet0/48
  switchport mode access
  spanning-tree portfast
 !
-!
 interface GigabitEthernet0/49
 !
 interface GigabitEthernet0/50
@@ -385,7 +403,6 @@ interface GigabitEthernet0/51
 !
 interface GigabitEthernet0/52
 !
-!
 interface Vlan1
  no ip address
 !
@@ -393,6 +410,8 @@ interface Vlan2
  ip address 10.0.2.1 255.255.0.0
  no ip route-cache
 !
+interface Vlan100
+ no ip address
 !
 ip default-gateway 10.0.2.254
 ip http server
@@ -409,7 +428,6 @@ line con 0
 line vty 0 4
  password 7 104C081B0B07425C
  transport input telnet
-!
 line vty 5 15
  transport input ssh
 !
