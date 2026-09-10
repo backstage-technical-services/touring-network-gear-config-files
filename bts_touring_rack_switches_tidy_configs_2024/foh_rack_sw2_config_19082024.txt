@@ -330,67 +330,79 @@ interface GigabitEthernet2/0/36
 interface TenGigabitEthernet2/0/37
  switchport access vlan 201
  switchport mode access
+ speed 1000
  spanning-tree portfast
  spanning-tree bpdufilter enable
 !
 interface TenGigabitEthernet2/0/38
  switchport access vlan 201
  switchport mode access
+ speed 1000
  spanning-tree portfast
  spanning-tree bpdufilter enable
 !
 interface TenGigabitEthernet2/0/39
  switchport trunk encapsulation dot1q
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 5000
 !
 interface TenGigabitEthernet2/0/40
  switchport trunk encapsulation dot1q
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 5000
 !
 interface TenGigabitEthernet2/0/41
  switchport trunk encapsulation dot1q
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 5000
 !
 interface TenGigabitEthernet2/0/42
  switchport trunk encapsulation dot1q
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 5000
 !
 interface TenGigabitEthernet2/0/43
  switchport trunk encapsulation dot1q
  switchport trunk allowed vlan 2,34,100-108,201
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 5000
 !
 interface TenGigabitEthernet0/44
  switchport trunk encapsulation dot1q
  switchport trunk allowed vlan 2,34,100-108,201
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 200
 !
 interface TenGigabitEthernet2/0/45
  switchport trunk encapsulation dot1q
  switchport trunk allowed vlan 50,51,60
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 5000
 !
 interface TenGigabitEthernet2/0/46
  switchport trunk encapsulation dot1q
  switchport trunk allowed vlan 50,51,60
  switchport mode trunk
+ speed 1000
  spanning-tree mst 0-3 cost 200
 !
 interface TenGigabitEthernet2/0/47
  switchport access vlan 2
  switchport mode access
+ speed 1000
  spanning-tree portfast
 !
 interface TenGigabitEthernet2/0/48
  switchport access vlan 2
  switchport mode access
+ speed 1000
  spanning-tree portfast
 !
 interface TenGigabitEthernet2/1/1
