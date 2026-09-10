@@ -1,5 +1,5 @@
 !
-! Last configuration change at 08:27:32 UTC Tue Mar 2 1993 by admin
+! Last configuration change at 07:56:24 UTC Tue Mar 2 1993 by admin
 !
 version 15.0
 no service pad
