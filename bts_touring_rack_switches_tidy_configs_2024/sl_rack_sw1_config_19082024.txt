@@ -7,7 +7,7 @@ service timestamps debug datetime msec
 service timestamps log datetime msec
 service password-encryption
 !
-hostname bts-cisco-48-5
+hostname bts-cisco-sl-1
 !
 boot-start-marker
 boot-end-marker
