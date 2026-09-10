@@ -8,7 +8,7 @@ service timestamps log datetime msec
 service password-encryption
 service unsupported-transceiver
 !
-hostname bts-cisco-48-3
+hostname bts-cisco-sr-1
 !
 boot-start-marker
 boot-end-marker
